@@ -1,0 +1,15 @@
+<template name="HashtagIndex">
+  <li class="hashtagrow list-unstyled row">
+    <div class="col-sm-2 col-md-2 text-center">      
+      <img src="/images/bird.png" class="img-circle img-center" alt="Responsive image">
+    </div>
+    <div class="col-sm-8 col-md-8">      
+      <a href="{{pathFor 'posts.index'}}"><p><strong>#{{name}}</strong></p></a>
+      <p class="text-muted">{{preview}}</p>
+    </div>
+    <div class="text-center col-sm-2 col-md-2">    
+      <p class="text-muted">{{getDate submitted}}</p>
+      {{> Star}}
+    </div>
+  </li>
+</template>

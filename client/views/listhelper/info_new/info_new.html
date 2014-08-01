@@ -1,0 +1,11 @@
+<template name="InfoNew">
+  {{#with hasNew}}
+    {{#if greaterEqual count 1}}
+      <li class="hashtagrow list-unstyled row"> 
+        <div class="col-sm-12 col-md-12 text-center">      
+          <button type="button" class="btn btn-default loadmore">Show me {{count}} new posts! </button>
+        </div>       
+      </li>    
+    {{/if}}
+  {{/with}}
+</template>

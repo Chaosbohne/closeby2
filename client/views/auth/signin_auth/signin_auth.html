@@ -1,0 +1,32 @@
+<template name="SignInAuth">
+  <div id="SignInAuth">
+    {{#autoForm validation="keyup" schema=signInSchema id="signInForm" role="form"}}
+      <!-- Name -->
+      <!-- Email -->
+      <div class="form-group {{#if afFieldIsInvalid name='email'}} has-error {{/if}}">
+        {{> afFieldLabel name="email"}}
+        {{> afFieldInput placeholder="Your Email" name="email" value=hasSavedEmailOnViewChange }} 
+        {{#if afFieldIsInvalid name="email"}}
+          <span class="help-block">{{afFieldMessage name="email"}}</span>
+        {{/if}}      
+      </div>  
+      <!-- Password -->
+      <div class="form-group {{#if afFieldIsInvalid name='password'}} has-error {{/if}}">
+        {{> afFieldLabel name="password"}}
+        {{> afFieldInput type="password" name="password" placeholder="Your Password" value=hasSavedPasswordOnViewChange }}
+        {{#if afFieldIsInvalid name="password"}}
+          <span class="help-block">{{afFieldMessage name="password"}}</span>
+        {{/if}}      
+      </div> 
+      <!-- Buttons -->
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Login</button>
+        <span>or</span>
+        <button class="btn btn-sm btn-default goSignUpWorkflow">SignUp</button>
+      </div>
+    {{#if hasRegisterError}}
+      <span class="help-block">{{hasRegisterError}}</span>
+    {{/if}}          
+    {{/autoForm}}
+  </div>  
+</template>

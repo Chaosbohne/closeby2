@@ -1,0 +1,9 @@
+<template name="AuthIndex">
+  <div id="AuthIndex">
+    {{#if isSignInWorkflow}}
+      {{> SignInAuth}}
+    {{else}}
+      {{> SignUpAuth}}
+    {{/if}}
+  </div>
+</template>

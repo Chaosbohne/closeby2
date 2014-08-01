@@ -1,0 +1,10 @@
+<template name="InfoNewHashtag">
+  {{#if lowerEqual amountOfNewHashtags 1}}
+  {{else}}
+  <li class="hashtagrow list-unstyled row"> 
+    <div class="col-sm-12 col-md-12 text-center">      
+      <button type="button" class="btn btn-default loadmore">Show me {{amountOfNewHashtags}} new hashtags! </button>
+    </div>       
+  </li>
+  {{/if}}
+</template>

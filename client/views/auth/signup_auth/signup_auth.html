@@ -1,0 +1,45 @@
+<template name="SignUpAuth">
+  <div id="SignUpAuth">
+    {{#autoForm validation="keyup" schema=signUpSchema id="signUpForm" role="form"}}
+      <!-- Name -->
+      <div class="form-group {{#if afFieldIsInvalid name='name'}} has-error {{/if}}">
+        {{> afFieldLabel name="name"}}
+        {{> afFieldInput class="form-control" placeholder="Your Name" name="name" value=hasSavedNameOnViewChange }}
+        {{#if afFieldIsInvalid name="name"}}
+          <span class="help-block">{{afFieldMessage name="name"}}</span>
+        {{/if}}      
+      </div>  
+      <!-- Email -->
+      <div class="form-group {{#if afFieldIsInvalid name='email'}} has-error {{/if}}">
+        {{> afFieldLabel name="email"}}
+        {{> afFieldInput class="form-control" placeholder="Your Email" name="email" value=hasSavedEmailOnViewChange }}
+        {{#if afFieldIsInvalid name="email"}}
+          <span class="help-block">{{afFieldMessage name="email"}}</span>
+        {{/if}}      
+      </div>  
+      <!-- Password -->
+      <div class="form-group {{#if afFieldIsInvalid name='password'}} has-error {{/if}}">
+        {{> afFieldLabel name="password"}}
+        {{> afFieldInput class="form-control" type="password" placeholder="Your Password" name="password" value=hasSavedPasswordOnViewChange }}
+        {{#if afFieldIsInvalid name="password"}}
+          <span class="help-block">{{afFieldMessage name="password"}}</span>
+        {{/if}}      
+      </div> 
+      <!-- locs -->
+      <!-- zoomLevel -->
+      <!-- centerLocs -->
+      <div class="form-group">
+        {{> MapAuth}}
+      </div>
+      <!-- Buttons -->
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Register</button>
+        <span>or</span>
+        <button class="goSignInWorkflow btn btn-sm btn-default">SignIn</button>
+      </div>
+    {{#if hasRegisterError}}
+      <span class="help-block">{{hasRegisterError}}</span>
+    {{/if}}          
+    {{/autoForm}}
+  </div>  
+</template>

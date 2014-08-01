@@ -1,0 +1,35 @@
+<template name="PostIndex">
+  <li class="hashtagrow list-unstyled row {{#if isNotCollapsed}}active{{/if}}">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-2 col-md-2 text-center">      
+          <img src="/images/bird.png" class="img-circle img-center" alt="Responsive image">
+        </div>
+        <div class="col-sm-8 col-md-8">      
+          <a href="{{pathFor 'posts.index'}}"><p><strong>@{{author}}</strong></p></a>
+          {{#if isNotCollapsed}}
+          {{else}}
+          <div class="text-muted">{{preview}}</div>
+          {{/if}}
+        </div>
+        <div class="text-center col-sm-2 col-md-2">    
+          <p class="text-muted">{{getDate submitted}}</p>
+        </div>        
+      </div>
+      {{#if isNotCollapsed}}
+      <div class="row">
+        <div class="col-sm-2 col-md-2 text-center">      
+        </div>   
+        <div class="col-sm-9 col-md-8">      
+          <div>{{rawContent}}</div>
+          {{#if imageId}}
+            <img src="{{imageUrl}}" class="img-responsive" alt="Responsive image">
+          {{/if}}
+        </div>      
+        <div class="col-sm-1 col-md-2">
+        </div>
+      </div>
+      {{/if}}
+    </div>
+  </li>
+</template>

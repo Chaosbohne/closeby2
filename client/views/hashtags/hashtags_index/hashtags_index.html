@@ -1,0 +1,17 @@
+<template name="HashtagsIndex">
+  <div id="hashtags">
+    <ul class="hashtags list-unstyled">
+      {{#if equals count 0}}
+        {{#with emptyListHelper}}
+          {{> EmptyList}}
+        {{/with}}
+      {{else}}
+        {{> InfoNew}}
+        {{#each hashtagss}}
+          {{> HashtagIndex}}
+        {{/each}}      
+      {{/if}}
+      {{> LoadMore}}
+    </ul>
+  </div>
+</template>

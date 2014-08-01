@@ -1,0 +1,28 @@
+<template name="MasterLayout">
+  <header role="banner">  
+    {{> Navbar}}
+  </header>
+  
+  <div id="MasterLayout" class="fill"> 
+    <div class="container">
+      <div class="row">
+          <div class="col-sm-5 col-md-5">             
+            <div id="sidebar">
+              {{#with currentUser}}            
+                {{> yield region='side'}}
+              {{/with}}
+            </div>
+        </div>
+        <div class="col-sm-7 col-md-7 rowshadow">    
+          {{> yield}}
+        </div>
+      </div>       
+    </div> 
+  </div>  
+  
+  {{> LogRender}}
+  
+  <footer>
+    {{> yield region='Footer'}}
+  </footer>  
+</template>

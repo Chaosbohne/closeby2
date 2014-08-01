@@ -1,0 +1,14 @@
+{
+  "packages": {
+    "iron-router": {},
+    "fast-render": {},
+    "subs-manager": {},
+    "iron-router-progress": {},
+    "bootstrap3-less": {},
+    "autoform": {},
+    "twitter-text": {},
+    "collection-hooks": {},
+    "collectionFS": {},
+    "cfs-s3": {}
+  }
+}

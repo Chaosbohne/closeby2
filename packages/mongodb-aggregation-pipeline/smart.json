@@ -1,0 +1,8 @@
+{
+  "name": "mongodb-aggregation-pipeline",
+  "description": "Adds aggregation-pipeline support to meteor.",
+  "homepage": "",
+  "author": "Rico Ruszewski",
+  "version": "0.1.0",
+  "git": ""
+}

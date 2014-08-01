@@ -1,0 +1,69 @@
+<template name="CreateIndex">
+  <div id="CreateIndex" class="hashtagHeader">
+    {{#autoForm collection="Posts"  id="postForm" role="form"}}   
+      <div class="row">
+        <div class="col-sm-2 col-md-2 text-center">    
+          <img id="thumbnail-img" src="images/bird.png" class="img-circle img-center">
+        </div>        
+         <div class="form-group col-sm-10 col-md-10">
+          <label class="sr-only" for="exampleHashtag">Hashtag</label>
+          <div class="input-group ">
+            <div class="input-group-addon"><strong>#</strong></div>
+            {{> afFieldInput name="hashtag" placeholder="Hashtag" value=hashtagValueFromLastSession}}
+            <div class="input-group-addon"><span class="text-muted">{{remaingHashtagLetters}}</span></div>
+          </div>       
+          {{#if afFieldIsInvalid name="hashtag"}}
+            <span class="help-block">{{afFieldMessage name="hashtag"}}</span>
+          {{/if}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-offset-2 col-md-offset-2 col-sm-10 col-md-10">
+          <label class="sr-only" for="exampleContent">Content</label>
+          {{> afFieldInput name="rawContent" rows="10" value=contentValueFromLastSession}}
+          {{#if afFieldIsInvalid name="rawContent"}}
+            <span class="help-block">{{afFieldMessage name="rawContent"}}</span>
+          {{/if}}
+        </div>        
+      </div>    
+    {{#if afFieldIsInvalid name="loc"}}
+    <div class="row">
+      <div class="form-group  col-sm-offset-2 col-md-offset-2 col-sm-10 col-md-10 text-center" role="alert">
+        <div class="alert alert-warning">Click on the map where you want to post!</div>
+      </div>
+    </div>    
+    {{/if}}    
+    {{#with hasImageValidationError}}
+    <div class="validation-errors row">
+      <div class="form-group text-center col-sm-offset-2 col-md-offset-2 col-sm-10 col-md-10" role="alert">
+        <div class="alert alert-warning alert-dismissable"><strong>Oh snap! </strong>{{reason}}</div>
+      </div>
+    </div>
+    {{/with}}
+      <div class="row">
+        <div class="form-group col-sm-offset-2 col-md-offset-2 col-sm-10 col-md-10">
+          {{#if onCreateSubmit}}
+            <button type="submit" class="btn btn btn-primary pull-right disabled">
+              <span class="glyphicon glyphicon-pencil"></span> Post
+            </button>
+          {{else}}
+            <button type="submit" class="btn btn btn-primary pull-right">
+              <span class="glyphicon glyphicon-pencil"></span> Post
+            </button>          
+          {{/if}}
+          <span class="pull-right text-muted remainingContentLetters">{{remainingContentLetters}}</span>
+          <button type="button" class="btn btn-default btn-file pull-left ">
+            <span class="glyphicon glyphicon-camera"></span> Add Photo<input id="addImage" accept="image/*" type="file">         
+          </button>              
+          {{#if selectedUploadImageThumb}}
+          {{#with selectedUploadImageThumb}}
+            <span class="pull-left">
+              <img id="preview-img" src="{{src}}" title="{{title}}" class="img-responsive img-center">
+            </span>
+          {{/with}}              
+          {{/if}}             
+        </div>         
+      </div>
+    {{/autoForm}}
+  </div>
+</template>

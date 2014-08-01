@@ -1,0 +1,18 @@
+<template name="PostsIndex">
+  <div id="PostsIndex">
+    <ul class="hashtags list-unstyled">
+      {{> HeaderPost}}
+      {{#if equals count 0}}
+        {{#with emptyListHelper}}
+          {{> EmptyList}}
+        {{/with}}
+      {{else}} 
+        {{> InfoNew}}
+        {{#each postss}}
+          {{> PostIndex}}
+        {{/each}}      
+      {{/if}}
+      {{> LoadMore}}  
+    </ul>
+  </div>
+</template>

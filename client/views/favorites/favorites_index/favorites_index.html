@@ -1,0 +1,17 @@
+<template name="FavoritesIndex">
+  <div id="PostsIndex">
+    <ul class="hashtags list-unstyled">
+      {{#if equals count 0}}
+        {{#with emptyListHelper}}
+          {{> EmptyList}}
+        {{/with}}
+      {{else}} 
+        {{> InfoNew}}
+        {{#each postss}}
+          {{> FavoriteIndex}}
+        {{/each}}      
+      {{/if}}
+      {{> LoadMore}}  
+    </ul>
+  </div>
+</template>
